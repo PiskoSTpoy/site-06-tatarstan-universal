@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<!-- iOS не берёт SVG-фавиконку для «на экран Домой» — тот же знак в растре 180×180 -->
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<!--
+			Шрифты лежат на своём origin, в /fonts/. Ни одного запроса к стороннему CDN:
+			никаких лишних соединений до первого текста и никаких IP посетителей, уходящих
+			зарубежному сервису. Preload — ровно на три файла кириллического сабсета, которые
+			нужны для первого экрана любой страницы: Play 700 (заголовок), Ubuntu 400 (текст),
+			PT Mono 400 (лейблы, шапка, кнопки). Латиница и cyrillic-ext подтягиваются по
+			unicode-range только если на странице реально встретятся такие знаки.
+		-->
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/play-cyrillic-700-normal.woff2" crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/ubuntu-cyrillic-400-normal.woff2" crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/pt-mono-cyrillic-400-normal.woff2" crossorigin />
+		<link rel="stylesheet" href="/fonts/fonts.css" />
+		<!--
+			Прогрессивные улучшения (scroll-reveal, Escape в меню, полоса прогресса чтения,
+			подсветка оглавления, count-up) — 4 КБ на весь сайт вместо гидрации 37 страниц
+			статического текста. defer: скрипт ждёт разбора документа и ничего не блокирует.
+		-->
+		<script src="/enh.js" defer></script>
+		%sveltekit.head%
+	</head>
+	<!--
+		data-sveltekit-reload: переходы по ссылкам — обычная навигация браузера, а не
+		клиентский роутер. Сайт содержательно многостраничный и почти целиком статический
+		(клиентский рендер включён только на главной, где живут калькулятор и форма), поэтому
+		роутер нечего маршрутизировать — он только тянул бы чанки соседних страниц.
+		Предзагрузка по наведению снята по той же причине.
+	-->
+	<body data-sveltekit-reload>
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

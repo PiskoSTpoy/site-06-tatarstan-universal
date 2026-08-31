@@ -1,0 +1,32 @@
+# 301-редиректы KRAN-RT.
+#
+# Формат: <откуда> <куда> <код>. Поддерживается Netlify и Cloudflare Pages как файл
+# `_redirects` в корне собранного вывода (SvelteKit копирует содержимое static/ как есть).
+# При переезде на другой хостинг эти правила переносятся в его конфиг
+# (nginx: `return 301 ...`, Apache: `Redirect 301 ...`, Vercel: `redirects` в vercel.json).
+#
+# Строки ниже не должны потеряться: без них удалённые URL отдадут 404 вместо перехода
+# на заменивший их раздел. Все адресаты — внутренние.
+#
+# Волна 17: четыре правила вели на посторонний домен, это убрано. Постоянный редирект с
+# одного домена на другой технически заявляет «оба ресурса под общим управлением», а это
+# не так, и переносить по нему было нечего — домен не опубликован, веса на старых URL нет.
+
+# --- Волна 14 (удалены страницы без собственного содержания) + Волна 17 ---
+/documents/dokumenty-na-tehniku-i-operatora/  /documents/                               301
+/documents/dogovor-arendy-krana/              /documents/                               301
+/documents/akt-vypolnennyh-rabot/             /documents/                               301
+/blog/tehnicheskoe-osvidetelstvovanie-krana-461/  /dopusk/                              301
+
+# --- Волна 16: структурное расхождение. Раздел услуг заменён реестром типов объектов
+#     (/obekty-opo/), раздел кейсов — разбором форм и бланков (/formy/).
+#     Каждый старый URL ведёт на страницу, где его содержание реально продолжено,
+#     а не на общую заглушку раздела.
+/uslugi/                                     /obekty-opo/                              301
+/uslugi/kran-dlya-neftehimii/                /obekty-opo/gazoopasnaya-zona/            301
+/uslugi/avtokran-universalnyy/               /obekty-opo/obychnaya-stroyka/            301
+/keysy/                                      /formy/                                   301
+/keysy/naryad-dopusk-neftehim/               /obekty-opo/gazoopasnaya-zona/            301
+/keysy/montazh-u-postavshchika-kamaza/       /obekty-opo/promploshchadka/              301
+/keysy/podacha-na-promysel-almetevsk/        /obekty-opo/promysel/                     301
+/keysy/rabota-ryadom-s-kremlem/              /geo/kazan/                               301
