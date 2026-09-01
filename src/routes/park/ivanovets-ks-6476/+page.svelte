@@ -25,7 +25,7 @@
 	import ParkCraneArt from '$lib/ParkCraneArt.svelte';
 	import RigSummary from '$lib/RigSummary.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '17.08.2026';
 
 	const title = 'Ивановец КС-6476 — 50 тонн на шасси МЗКТ | Парк техники';

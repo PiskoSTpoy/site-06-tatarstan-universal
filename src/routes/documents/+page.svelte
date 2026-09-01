@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Sources from '$lib/Sources.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '21.08.2026';
 	// Волна 16: инлайновый абзац со ссылками заменён общим компонентом Sources — блок
 	// «Источники · проверено <дата>» теперь выглядит и читается одинаково на всех страницах сайта.

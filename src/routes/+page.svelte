@@ -2,12 +2,18 @@
 	import DopuskWizard from '$lib/DopuskWizard.svelte';
 	import Sources from '$lib/Sources.svelte';
 	import HeroIllustration from '$lib/HeroIllustration.svelte';
+	import CraneParamPicker from '$lib/CraneParamPicker.svelte';
+
+	// Волна 34: схема крана в первом экране становится кликабельной — CraneParamPicker
+	// держит своё open-состояние снаружи ($bindable), чтобы схема «приближалась» (zoomed)
+	// ровно пока открыта панель параметров, а не жила отдельной анимацией сама по себе.
+	let paramsOpen = $state(false);
 	import RigSummary from '$lib/RigSummary.svelte';
 	import PermitStatus from '$lib/PermitStatus.svelte';
 	import { countUp } from '$lib/countUp';
 	import { tilt } from '$lib/tilt';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '21.08.2026';
 
 	// Обработчик заявок — маленький серверный скрипт на площадке Cloudflare. Он нужен ровно
@@ -368,7 +374,8 @@
 					</p>
 				</div>
 				<div class="open__art">
-					<HeroIllustration />
+					<HeroIllustration zoomed={paramsOpen} />
+					<CraneParamPicker bind:open={paramsOpen} />
 				</div>
 			</div>
 		</div>

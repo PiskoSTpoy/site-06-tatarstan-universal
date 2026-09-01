@@ -36,7 +36,7 @@ import { join, sep, relative } from 'node:path';
 
 const BUILD = 'build';
 const ROUTES = join('src', 'routes');
-const SITE = 'https://kran-rt.example';
+const SITE = 'https://kran-rt.ru';
 
 // ── 1. build/404.html ────────────────────────────────────────────────────────
 const src404 = join(BUILD, '404', 'index.html');

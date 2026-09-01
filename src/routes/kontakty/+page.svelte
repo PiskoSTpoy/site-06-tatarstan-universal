@@ -13,7 +13,7 @@
 	 */
 	import Pairs from '$lib/Pairs.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const PHONE_HREF = 'tel:+79690849790';
 	const PHONE_TEXT = '+7 (969) 084-97-90';
 

@@ -16,8 +16,22 @@
 	// главная. Закрывать меню после навигации больше не нужно: переходы по ссылкам — обычная
 	// навигация браузера (data-sveltekit-reload), лейаут строится заново.
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const BRAND = 'KRAN-RT';
+
+	// Yandex.Metrika: собран как переменная, а не инлайн-разметка в svelte:head — литеральный
+	// <script> внутри svelte:head/{@html} путает наивный парсер тегов Svelte (двойной подсчёт
+	// фигурных скобок внутри IIFE ломает границу мустаща {@html ...}).
+	const METRIKA_ID = 112124215;
+	const metrikaSnippet =
+		'<scr' + 'ipt type="text/javascript">' +
+		"(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};" +
+		"m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}" +
+		"k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})" +
+		`(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${METRIKA_ID}', 'ym');` +
+		`ym(${METRIKA_ID}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});` +
+		'<' + '/scr' + 'ipt>' +
+		`<noscript><div><img src="https://mc.yandex.ru/watch/${METRIKA_ID}" width="1" height="1" style="position:absolute; left:-9999px;" alt="" /></div></noscript>`;
 
 	// Указатель текущей страницы (волна 129). Раньше его не было ни в одном из двух меню:
 	// человек, открывший «Парк техники», не видел в шапке никакого следа того, где он
@@ -49,7 +63,7 @@
 		'@id': SITE + '/#organization',
 		name: BRAND,
 		telephone: '+79690849790',
-		email: 'info@kran-rt.example',
+		email: 'info@kran-rt.ru',
 		url: SITE,
 		priceRange: '₽₽',
 		address: { '@type': 'PostalAddress', addressRegion: 'Республика Татарстан', addressCountry: 'RU' },
@@ -78,6 +92,7 @@
 	<meta property="og:image:alt" content="KRAN-RT — допуск крана на объект в Татарстане" />
 	<meta name="twitter:card" content="summary_large_image" />
 	{@html `<script type="application/ld+json">${JSON.stringify(businessLd)}<\/script>`}
+	{@html metrikaSnippet}
 </svelte:head>
 
 <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
@@ -130,7 +145,7 @@
 	не может быть разделом политики, и склеивать их в одну ссылку нельзя.
 -->
 <footer class="footer wrap">
-	<span>© 2026 {BRAND} · [SITE_06_DOMAIN]</span>
+	<span>© 2026 {BRAND} · kran-rt.ru</span>
 	<nav class="footer__legal" aria-label="Контакты и правовые документы">
 		<a href="/kontakty/">Контакты</a>
 		<a href="/politika-obrabotki-personalnyh-dannyh/">Политика обработки ПД</a>

@@ -2,7 +2,7 @@
 	import Sources from '$lib/Sources.svelte';
 	import RigSummary from '$lib/RigSummary.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '21.08.2026';
 
 	const title = 'Кран в Заинске — стройплощадка Заинской ГРЭС';

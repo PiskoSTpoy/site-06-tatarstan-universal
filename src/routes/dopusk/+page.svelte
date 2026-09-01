@@ -4,7 +4,7 @@
 	import RigSummary from '$lib/RigSummary.svelte';
 	import type { ReqItem } from '$lib/req';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '21.08.2026';
 
 	const title = 'Допуск крана на объект в Татарстане — чек-лист документов';

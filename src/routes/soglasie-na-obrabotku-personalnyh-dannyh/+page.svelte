@@ -23,7 +23,7 @@
 	import Pairs from '$lib/Pairs.svelte';
 	import Sources from '$lib/Sources.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '26.08.2026';
 	const PHONE_TEXT = '+7 (969) 084-97-90';
 

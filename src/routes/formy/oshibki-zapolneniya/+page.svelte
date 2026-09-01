@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Sources from '$lib/Sources.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '12.08.2026';
 
 	const title = 'Ошибки в наряде-допуске — из-за чего кран простаивает';

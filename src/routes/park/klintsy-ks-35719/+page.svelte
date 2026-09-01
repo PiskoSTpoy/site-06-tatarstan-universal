@@ -28,7 +28,7 @@
 	import ParkCraneArt from '$lib/ParkCraneArt.svelte';
 	import RigSummary from '$lib/RigSummary.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '17.08.2026';
 
 	const title = 'Клинцы КС-35719-7-02 — 16 тонн для тесной площадки';

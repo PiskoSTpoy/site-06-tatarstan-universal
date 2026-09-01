@@ -14,7 +14,7 @@
 	 */
 	import Pairs from '$lib/Pairs.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 
 	const title = 'Политика обработки персональных данных — KRAN-RT';
 	const description =

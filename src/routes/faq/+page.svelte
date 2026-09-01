@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Sources from '$lib/Sources.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '21.08.2026';
 	// Волна 16: ответы ниже опираются на нормативку и даты — значит, у страницы должен быть
 	// блок источников с датой проверки, иначе через год она врёт молча.

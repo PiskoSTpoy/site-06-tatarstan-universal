@@ -3,7 +3,7 @@
 	import Sources from '$lib/Sources.svelte';
 	import type { ReqItem } from '$lib/req';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '12.08.2026';
 
 	const title = 'Кран на обычной стройплощадке в Татарстане — что требуется';

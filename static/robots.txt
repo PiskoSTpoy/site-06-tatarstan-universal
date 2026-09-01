@@ -32,4 +32,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://kran-rt.example/sitemap.xml
+Sitemap: https://kran-rt.ru/sitemap.xml

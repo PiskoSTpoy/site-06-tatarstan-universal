@@ -2,7 +2,7 @@
 	import Pairs from '$lib/Pairs.svelte';
 	import Sources from '$lib/Sources.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '19.08.2026';
 
 	const title = 'Наряд-допуск для сетей газораспределения: форма ФНП №531';

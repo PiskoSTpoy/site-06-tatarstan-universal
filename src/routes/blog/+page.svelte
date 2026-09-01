@@ -2,7 +2,7 @@
 	import { posts } from '$lib/posts';
 	import Sources from '$lib/Sources.svelte';
 
-	const SITE = 'https://kran-rt.example';
+	const SITE = 'https://kran-rt.ru';
 	const CHECKED = '12.08.2026';
 
 	const title = 'Блог: наряд-допуск на газоопасные работы — разборы';

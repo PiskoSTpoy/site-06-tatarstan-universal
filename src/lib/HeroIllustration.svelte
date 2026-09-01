@@ -19,6 +19,10 @@
 	let container: HTMLDivElement | undefined = $state();
 	let svgEl: SVGSVGElement | undefined = $state();
 
+	// Волна 34: лёгкий zoom-in по внешнему состоянию (CraneParamPicker передаёт true, пока
+	// панель параметров открыта) — «приблизило схему», а не просто раскрыло текст под ней.
+	let { zoomed = false }: { zoomed?: boolean } = $props();
+
 	const LAYERS: { selector: string; depth: number }[] = [
 		{ selector: '.ill-grid', depth: 0.12 },
 		{ selector: '.ill-base', depth: 0.42 },
@@ -102,7 +106,7 @@
 	});
 </script>
 
-<div class="ill" bind:this={container} aria-hidden="true">
+<div class="ill" class:is-zoomed={zoomed} bind:this={container} aria-hidden="true">
 	<svg
 		bind:this={svgEl}
 		class="ill__svg"
@@ -184,6 +188,16 @@
 		height: 100%;
 		display: block;
 		overflow: visible;
+		transform-origin: 62% 38%;
+		transition: transform 0.32s ease;
+	}
+	.ill.is-zoomed .ill__svg {
+		transform: scale(1.14);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.ill__svg {
+			transition: none;
+		}
 	}
 	.ill-layer {
 		transition: transform 0.05s linear;
