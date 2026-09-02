@@ -49,10 +49,16 @@
 		'@context': 'https://schema.org', '@type': 'Article',
 		headline: 'ФНП №531 или приказ №528 — по какому регламенту оформлять наряд-допуск на газоопасные работы',
 		description,
+		// Временное значение: общая обложка сайта, не иллюстрация конкретной статьи —
+		// собственных иллюстраций у блога пока нет.
+		image: `${SITE}/og-cover.png`,
 		author: { '@type': 'Organization', name: 'Инженерная служба KRAN-RT', '@id': `${SITE}/#organization` },
 		publisher: { '@id': `${SITE}/#organization` },
 		mainEntityOfPage: `${SITE}/blog/fnp-531-ili-528-naryad-dopusk/`,
 		inLanguage: 'ru-RU',
+		// Дата первой публикации — по первому коммиту файла статьи в репозитории
+		// (git log --follow --format=%aI), не дата сборки/деплоя.
+		datePublished: '2026-08-31T21:08:56+03:00',
 	};
 	const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 </script>
@@ -63,6 +69,9 @@
 	<link rel="canonical" href="{SITE}/blog/fnp-531-ili-528-naryad-dopusk/" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 	{@html `<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(articleLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(faqLd)}<\/script>`}

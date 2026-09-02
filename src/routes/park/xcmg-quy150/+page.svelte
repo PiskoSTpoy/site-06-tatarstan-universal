@@ -115,6 +115,11 @@
 		'@type': 'Product',
 		name: 'Гусеничный кран XCMG QUY150',
 		description: 'Гусеничный кран грузоподъёмностью 150 т — часть собственного парка компании в Татарстане, для тяжёлого монтажа на нефтехимии.',
+		// Временное значение: общая обложка сайта, не фото конкретной машины (см. комментарий
+		// у ParkCraneArt выше — реальных снимков парка на сайте нет). Product без image не
+		// участвует в расширенных результатах Google для карточек товара, поэтому поле нужно
+		// заполнить хоть чем-то честным уже сейчас, а не оставлять пустым до фотосъёмки.
+		image: `${SITE}/og-cover.png`,
 		brand: { '@type': 'Brand', name: 'XCMG' },
 		category: 'Гусеничный кран',
 		offers: {
@@ -146,6 +151,9 @@
 	<link rel="canonical" href="{SITE}/park/xcmg-quy150/" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 	{@html `<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(faqLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(productLd)}<\/script>`}

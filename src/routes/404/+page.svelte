@@ -24,6 +24,9 @@
 	<meta name="robots" content="noindex, follow" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 </svelte:head>
 
 <main>

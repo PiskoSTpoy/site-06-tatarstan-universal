@@ -112,6 +112,10 @@
 		'@type': 'Product',
 		name: 'Автокран Ивановец КС-6476',
 		description: 'Автокран грузоподъёмностью 50 т на шасси МЗКТ-69234 (8×4) — часть собственного парка компании в Татарстане.',
+		// Временное значение: общая обложка сайта, не фото конкретной машины — реальных
+		// снимков парка на сайте нет. Product без image не участвует в расширенных
+		// результатах Google для карточек товара, поэтому поле нужно заполнить уже сейчас.
+		image: `${SITE}/og-cover.png`,
 		brand: { '@type': 'Brand', name: 'Ивановец' },
 		category: 'Автокран',
 		offers: {
@@ -143,6 +147,9 @@
 	<link rel="canonical" href="{SITE}/park/ivanovets-ks-6476/" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 	{@html `<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(faqLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(productLd)}<\/script>`}

@@ -115,6 +115,10 @@
 		'@type': 'Product',
 		name: 'Автокран Клинцы КС-35719-7-02',
 		description: 'Автокран грузоподъёмностью 16 т на шасси КамАЗ-43118 (6×6) — часть собственного парка компании в Татарстане.',
+		// Временное значение: общая обложка сайта, не фото конкретной машины — реальных
+		// снимков парка на сайте нет. Product без image не участвует в расширенных
+		// результатах Google для карточек товара, поэтому поле нужно заполнить уже сейчас.
+		image: `${SITE}/og-cover.png`,
 		brand: { '@type': 'Brand', name: 'Клинцы' },
 		category: 'Автокран',
 		offers: {
@@ -146,6 +150,9 @@
 	<link rel="canonical" href="{SITE}/park/klintsy-ks-35719/" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 	{@html `<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(faqLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(productLd)}<\/script>`}

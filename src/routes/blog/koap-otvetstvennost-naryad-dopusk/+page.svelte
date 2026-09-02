@@ -70,10 +70,16 @@
 		'@type': 'Article',
 		headline: 'Что грозит по КоАП за работу без наряда-допуска на газоопасные работы',
 		description,
+		// Временное значение: общая обложка сайта, не иллюстрация конкретной статьи —
+		// собственных иллюстраций у блога пока нет.
+		image: `${SITE}/og-cover.png`,
 		author: { '@type': 'Organization', name: 'Инженерная служба KRAN-RT', '@id': `${SITE}/#organization` },
 		publisher: { '@id': `${SITE}/#organization` },
 		mainEntityOfPage: `${SITE}/blog/koap-otvetstvennost-naryad-dopusk/`,
 		inLanguage: 'ru-RU',
+		// Дата первой публикации — по первому коммиту файла статьи в репозитории
+		// (git log --follow --format=%aI), не дата сборки/деплоя.
+		datePublished: '2026-08-31T21:08:56+03:00',
 	};
 	const faqLd = {
 		'@context': 'https://schema.org',
@@ -92,6 +98,9 @@
 	<link rel="canonical" href="{SITE}/blog/koap-otvetstvennost-naryad-dopusk/" />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 	{@html `<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(articleLd)}<\/script>`}
 	{@html `<script type="application/ld+json">${JSON.stringify(faqLd)}<\/script>`}

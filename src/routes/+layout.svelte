@@ -81,6 +81,13 @@
 		Превью ссылки. og:title и og:description задаёт каждая страница сама (они у всех разные),
 		а здесь — то, что одинаково на всём сайте. Картинка одна на сайт и намеренно без цифр:
 		парк, стаж и телефон на ней появиться не могут, пока их не подтвердил заказчик.
+
+		og:image:alt раньше был здесь как одна статичная строка на все страницы — альтернативный
+		текст обязан описывать саму картинку, а не переписывать её на 38 разных ладов. Теперь он
+		живёт в svelte:head каждой страницы рядом с её og:title (той же переменной title) — ровно
+		там, где уже видно, что title у страницы свой. twitter:title/description по той же причине
+		переехали туда же, к своим og-парам; здесь остаётся только twitter:image — он, как и
+		og:image, один и тот же на весь сайт, поэтому дублировать его на 38 страницах незачем.
 	-->
 	<meta property="og:type" content={ogType} />
 	<meta property="og:url" content={SITE + page.url.pathname} />
@@ -89,8 +96,8 @@
 	<meta property="og:image" content="{SITE}/og-cover.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="KRAN-RT — допуск крана на объект в Татарстане" />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="{SITE}/og-cover.png" />
 	{@html `<script type="application/ld+json">${JSON.stringify(businessLd)}<\/script>`}
 	{@html metrikaSnippet}
 </svelte:head>
