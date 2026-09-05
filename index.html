@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+		<!-- Растровый .ico — часть краулеров (в т.ч. Яндекс) всё ещё проверяют его по
+			умолчанию и не находят фавиконку по одной только SVG-ссылке выше. -->
+		<link rel="alternate icon" href="/favicon.ico" sizes="32x32" />
 		<!-- iOS не берёт SVG-фавиконку для «на экран Домой» — тот же знак в растре 180×180 -->
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<!--
@@ -25,13 +29,13 @@
 			статического текста. defer: скрипт ждёт разбора документа и ничего не блокирует.
 		-->
 		<script src="/enh.js" defer></script>
-		<link href="./_app/immutable/entry/start.DwEtdk5s.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/Dr5qhh41.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/start.B2Zo2Ecn.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DpKa7V7_.js" rel="modulepreload">
 		<link href="./_app/immutable/chunks/l_Ifiigv.js" rel="modulepreload">
-		<link href="./_app/immutable/entry/app.DtE_5d5h.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.BVunZnTQ.js" rel="modulepreload">
 		<link href="./_app/immutable/chunks/xihTtKlq.js" rel="modulepreload">
-		<link href="./_app/immutable/nodes/0.5yAYbVPS.js" rel="modulepreload">
-		<link href="./_app/immutable/chunks/CJ_24gxB.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/0.Og224uO3.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DTIiIVRZ.js" rel="modulepreload">
 		<link href="./_app/immutable/nodes/2.DYNqlHjz.js" rel="modulepreload">
 		<link href="./_app/immutable/chunks/CxDuqdKG.js" rel="modulepreload">
 		<link href="./_app/immutable/chunks/nXx-ASlV.js" rel="modulepreload">
@@ -71,15 +75,15 @@
 			
 			<script>
 				{
-					__sveltekit_puz0q8 = {
+					__sveltekit_93m1cm = {
 						base: new URL(".", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.DwEtdk5s.js"),
-						import("./_app/immutable/entry/app.DtE_5d5h.js")
+						import("./_app/immutable/entry/start.B2Zo2Ecn.js"),
+						import("./_app/immutable/entry/app.BVunZnTQ.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
