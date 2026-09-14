@@ -134,7 +134,11 @@
 			<a href="/formy/naryad-dopusk-blank/" style="color:var(--accent)">«Анатомия документа»</a>; разграничение
 			наряда и пропуска — в разборе
 			<a href="/formy/naryad-i-propusk/" style="color:var(--accent)">«Наряд-допуск и пропуск»</a>; полный порядок
-			оформления — в <a href="/dopusk/" style="color:var(--accent)">чек-листе допуска</a>.
+			оформления — в <a href="/dopusk/" style="color:var(--accent)">чек-листе допуска</a>. Кто такое
+			аварийно-спасательное формирование из ошибки №5 — в статье
+			<a href="/blog/pass-f-gazospasatelnaya-sluzhba/" style="color:var(--accent)">«Кто такое ПАСС(Ф)»</a>; чем
+			грозит подрядчику работа без оформленного наряда — в статье
+			<a href="/blog/koap-otvetstvennost-naryad-dopusk/" style="color:var(--accent)">«Что грозит по КоАП»</a>.
 		</p>
 
 		<Sources items={sources} date={CHECKED} />

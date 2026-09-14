@@ -183,6 +183,12 @@
 			самого предприятия, а не эксплуатирующая организация участка. Разбор — на странице
 			<a href="/obekty-opo/promploshchadka/almetevsk/">«Завод "Алнас" в Альметьевске — промплощадка, а не промысел»</a>.
 		</p>
+
+		<p style="margin-top:24px">
+			Общий порядок оформления допуска — в <a href="/dopusk/" style="color:var(--accent)">чек-листе</a>; чем
+			наряд-допуск отличается от пропуска на территорию — в
+			<a href="/formy/naryad-i-propusk/" style="color:var(--accent)">разборе форм</a>.
+		</p>
 	</section>
 
 	<section class="section wrap" id="faq-geo" style="padding-top:0">

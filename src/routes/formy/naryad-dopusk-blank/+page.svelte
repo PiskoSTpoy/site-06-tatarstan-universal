@@ -198,7 +198,10 @@
 			отличается форма для сетей газораспределения по совсем другому приказу — в разборе
 			<a href="/formy/naryad-dopusk-gazoraspredelenie-531/" style="color:var(--accent)"
 				>«Наряд-допуск по ФНП №531»</a
-			>.
+			>; сам выбор между этими двумя документами разобран в статье
+			<a href="/blog/fnp-531-ili-528-naryad-dopusk/" style="color:var(--accent)">«ФНП №531 или приказ №528»</a>.
+			Кто согласовывает бланк со стороны газоспасательной службы — в статье
+			<a href="/blog/pass-f-gazospasatelnaya-sluzhba/" style="color:var(--accent)">«Кто такое ПАСС(Ф)»</a>.
 		</p>
 
 		<Sources items={sources} date={CHECKED} />
