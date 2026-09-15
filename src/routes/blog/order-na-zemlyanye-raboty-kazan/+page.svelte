@@ -63,7 +63,7 @@
 		inLanguage: 'ru-RU',
 		// Дата первой публикации — по первому коммиту файла статьи в репозитории
 		// (git log --follow --format=%aI), не дата сборки/деплоя.
-		datePublished: '2026-09-15T10:22:03+03:00',
+		datePublished: '2026-09-15T10:26:51+03:00',
 	};
 	const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 </script>
