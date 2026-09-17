@@ -93,9 +93,8 @@
 		mainEntityOfPage: `${SITE}/blog/soglasovanie-krana-pridorozhnaya-polosa/`,
 		inLanguage: 'ru-RU',
 		// Дата первой публикации — по первому коммиту файла статьи в репозитории
-		// (git log --follow --format=%aI), не дата сборки/деплоя. Значение ниже уточняется
-		// отдельным коммитом сразу после первой публикации — тем же принципом, что у прошлых статей.
-		datePublished: '2026-09-17T12:00:00+03:00',
+		// (git log --follow --format=%aI), не дата сборки/деплоя.
+		datePublished: '2026-09-17T10:27:50+03:00',
 	};
 	const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 </script>
