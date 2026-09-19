@@ -68,9 +68,8 @@
 		mainEntityOfPage: `${SITE}/blog/soglasovanie-krana-ohrannaya-zona-linii-svyazi/`,
 		inLanguage: 'ru-RU',
 		// Дата первой публикации — по первому коммиту файла статьи в репозитории
-		// (git log --follow --format=%aI), не дата сборки/деплоя. Значение ниже — заглушка,
-		// уточняется отдельным коммитом сразу после публикации по фактическому времени коммита.
-		datePublished: '2026-09-19T15:10:00+03:00',
+		// (git log --follow --format=%aI), не дата сборки/деплоя.
+		datePublished: '2026-09-19T18:06:21+03:00',
 	};
 	const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 </script>
