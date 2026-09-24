@@ -82,7 +82,7 @@
 		inLanguage: 'ru-RU',
 		// Дата первой публикации — по первому коммиту файла статьи в репозитории
 		// (git log --follow --format=%aI), не дата сборки/деплоя.
-		datePublished: '2026-09-24T00:00:00+03:00',
+		datePublished: '2026-09-24T12:17:31+03:00',
 	};
 	const faqLd = {
 		'@context': 'https://schema.org',
