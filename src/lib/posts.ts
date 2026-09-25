@@ -342,6 +342,30 @@ export const posts: Post[] = [
 		tag: 'Договор',
 	},
 	{
+		slug: 'ploshchadka-pod-vynosnye-opory-avtokrana',
+		href: '/blog/ploshchadka-pod-vynosnye-opory-avtokrana/',
+		title: 'Площадка под выносные опоры автокрана — что проверить до подачи крана',
+		excerpt:
+			'ФНП №461, пп. 108–111: грунт и уклон, все выносные опоры, 1 м от поворотной части до строений и отступ от края котлована по таблице приложения №1.',
+		tag: 'Площадка',
+	},
+	{
+		slug: 'kakoy-kran-vybrat-16-50-150-tonn',
+		href: '/blog/kakoy-kran-vybrat-16-50-150-tonn/',
+		title: 'Кран на 16, 50 или 150 тонн — какой заказать под задачу',
+		excerpt:
+			'Клинцы КС-35719-7-02, Ивановец КС-6476 или XCMG QUY150: выбор по массе груза на вылете, высоте, месту под опоры и доставке — с таблицей сравнения.',
+		tag: 'Выбор техники',
+	},
+	{
+		slug: 'analiz-vozdushnoy-sredy-rabota-krana',
+		href: '/blog/analiz-vozdushnoy-sredy-rabota-krana/',
+		title: 'Анализ воздушной среды перед работой крана в газоопасном месте',
+		excerpt:
+			'Приказ №528: анализ перед началом работ (п. 31), кто задаёт периодичность замеров (п. 22), 20% НКПР и перерыв дольше часа при огневых работах (п. 95).',
+		tag: 'Газоопасные работы',
+	},
+	{
 		slug: 'specrazreshenie-proezd-avtokrana',
 		href: '/blog/specrazreshenie-proezd-avtokrana/',
 		title: 'Спецразрешение на проезд автокрана в Татарстане — когда нужно и кто выдаёт',
