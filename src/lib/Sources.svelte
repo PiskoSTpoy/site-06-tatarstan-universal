@@ -9,11 +9,19 @@
 	 */
 	type SourceItem = { label: string; href: string };
 
-	let { items, date, note }: { items: SourceItem[]; date: string; note?: string } = $props();
+	// heading: вывести заголовок блока как <h2 id="istochniki"> — так блок видят оглавление и
+	// geo_check.py (seo-2026-playbook ищет H2 «Источники»). По умолчанию — прежний <p>, чтобы не
+	// менять число H2 (и авто-оглавление postbuild) на уже опубликованных страницах.
+	let { items, date, note, heading = false }: { items: SourceItem[]; date: string; note?: string; heading?: boolean } =
+		$props();
 </script>
 
 <aside class="src" aria-label="Источники и дата проверки">
-	<p class="src__head">Источники · проверено {date}</p>
+	{#if heading}
+		<h2 class="src__head" id="istochniki">Источники · проверено {date}</h2>
+	{:else}
+		<p class="src__head">Источники · проверено {date}</p>
+	{/if}
 	<ul class="src__list">
 		{#each items as s (s.href)}
 			<li>
@@ -40,6 +48,9 @@
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		color: var(--accent);
+		/* тот же вид для <h2>: глобальные стили .prose h2 не должны раздувать заголовок блока */
+		line-height: 1.5;
+		margin: 0;
 	}
 	.src__list {
 		margin: 10px 0 0;

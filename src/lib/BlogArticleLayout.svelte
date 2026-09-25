@@ -26,6 +26,9 @@
 		currentSlug,
 		ctaText,
 		ctaHref,
+		lead,
+		published,
+		checked,
 		children,
 	}: {
 		title: string;
@@ -36,6 +39,13 @@
 		currentSlug: string;
 		ctaText: string;
 		ctaHref: string;
+		// Необязательные поля скелета статьи seo-2026-playbook (§1). Статьи до 25.09.2026 их не
+		// передают и рендерятся как раньше. lead — прямой ответ 40-90 слов ДО оглавления (иначе
+		// первым текстом статьи оказываются пункты мобильного ToC); published — ISO-дата первого
+		// коммита статьи, выводится в <time datetime>; checked — дата сверки источников (ДД.ММ.ГГГГ).
+		lead?: string;
+		published?: string;
+		checked?: string;
 		children: Snippet;
 	} = $props();
 </script>
@@ -52,7 +62,13 @@
 			<article class="section prose" data-blog-article style="padding-top:8px">
 				<span class="eyebrow">{eyebrow}</span>
 				<h1 class="blog-title">{title}</h1>
-				<p class="blog-subtitle">{subtitle}</p>
+				<!-- div, а не p: подпись-метаданные не должна считаться первым абзацем статьи -->
+				<div class="blog-subtitle">
+					{subtitle}{#if published}
+						· опубликовано <time datetime={published}>{published.slice(0, 10).split('-').reverse().join('.')}</time>{/if}{#if checked}
+						· факты проверены {checked}{/if}
+				</div>
+				{#if lead}<p class="blog-lead">{lead}</p>{/if}
 
 				<TableOfContents {headings} variant="mobile" />
 
@@ -91,6 +107,11 @@
 		color: var(--muted);
 		font-size: var(--fs-3);
 		margin-bottom: 28px;
+	}
+	.blog-lead {
+		font-size: var(--fs-6);
+		line-height: 1.6;
+		margin: -8px 0 24px;
 	}
 
 	/* Десктоп — двухколоночная сетка: статья слева (макс 820px), sticky-оглавление справа */
