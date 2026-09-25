@@ -30,6 +30,19 @@
 //    вытрясти сам, — 550 КБ из 695 КБ всего JS сборки. Список «живых» файлов считается не
 //    вручную, а обходом: что реально упомянуто в HTML + транзитивно то, что эти файлы
 //    импортируют. Ниже удаляется строго остаток.
+//
+// 4. seo-2026-playbook: id на H2 + TOC там, где своей обвязки ещё нет. У блога уже есть
+//    полная обвязка (BlogArticleLayout.svelte + TableOfContents.svelte, id проставляется в
+//    каждой статье через $lib/slug.ts). Остальные ~30 страниц (park/geo/formy/obekty-opo/
+//    faq/documents/...) используют голый +layout.svelte без этого. ВАЖНО: `+layout.ts` этого
+//    сайта ставит `csr = false` для всех маршрутов, и только `routes/+page.ts` (главная)
+//    перекрывает это обратно в `true` — то есть гидратация вообще есть только на одной
+//    странице сайта, остальные — чистый HTML без клиентского Svelte-рантайма. Вставка нового
+//    узла в HTML там не может дать hydration mismatch (пойманный на manipmo.ru и kranneva.ru)
+//    в принципе — гидратировать нечему. TOC поэтому вставляется на все страницы, КРОМЕ
+//    build/index.html: там csr=true, и это единственная страница сайта, где риск реален, —
+//    для неё патчится только id (атрибут на существующем узле, не новый узел), и это отдельно
+//    подтверждено живой проверкой консоли перед коммитом (см. STATUS.md).
 
 import { readdirSync, statSync, readFileSync, writeFileSync, rmSync, existsSync, unlinkSync } from 'node:fs';
 import { join, sep, relative } from 'node:path';
@@ -233,4 +246,92 @@ if (existsSync(IMM)) {
 		`postbuild: удалено ${removed} недостижимых чанков (${(removedBytes / 1024).toFixed(0)} КБ), ` +
 			`в сборке осталось ${(leftBytes / 1024).toFixed(0)} КБ JS`
 	);
+}
+
+// ── 4. id на H2 + TOC вне блога ───────────────────────────────────────────────
+const SLUG_MAP = {
+	а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'yo', ж: 'zh', з: 'z', и: 'i', й: 'y',
+	к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f',
+	х: 'h', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'sch', ъ: '', ы: 'y', ь: '', э: 'e', ю: 'yu', я: 'ya',
+};
+function slugify(text) {
+	const lower = text.toLowerCase();
+	let out = '';
+	for (const ch of lower) {
+		if (SLUG_MAP[ch] !== undefined) out += SLUG_MAP[ch];
+		else if (/[a-z0-9]/.test(ch)) out += ch;
+		else out += '-';
+	}
+	return out.replace(/-+/g, '-').replace(/^-|-$/g, '') || 'section';
+}
+function stripTags(s) {
+	return s.replace(/<[^>]+>/g, '').trim();
+}
+
+const TOC_STYLE = `<style>
+.g26-toc{margin:0 0 28px;padding:16px 18px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:rgba(0,0,0,.02);max-width:640px}
+.g26-toc__title{font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;opacity:.7}
+.g26-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.g26-toc a{text-decoration:none;font-size:.92rem}
+.g26-toc a:hover{text-decoration:underline}
+@media (prefers-color-scheme: dark){.g26-toc{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.03)}}
+</style>`;
+
+function patchGeo2026(file, { allowToc }) {
+	let html = readFileSync(file, 'utf8');
+	const m = html.match(/<main[^>]*>([\s\S]*?)<\/main>/);
+	if (!m) return false;
+	const openTag = m[0].match(/<main[^>]*>/)[0];
+	let main = m[1];
+	const hasOwnToc = /class="toc-d"|class="toc-m"|class="g26-toc"/.test(main);
+	const used = new Set();
+	const items = [];
+	let changed = false;
+
+	main = main.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/g, (full, attrs, text) => {
+		let id;
+		const idm = attrs.match(/id="([^"]*)"/);
+		if (idm) {
+			id = idm[1];
+		} else {
+			const t = stripTags(text);
+			if (!t) return full;
+			const base = slugify(t);
+			id = base;
+			let i = 2;
+			while (used.has(id)) id = `${base}-${i++}`;
+			attrs = ` id="${id}"${attrs}`;
+			changed = true;
+		}
+		used.add(id);
+		items.push({ id, text: stripTags(text) });
+		return `<h2${attrs}>${text}</h2>`;
+	});
+
+	if (allowToc && items.length >= 3 && !hasOwnToc) {
+		const list = items.map((it) => `<li><a href="#${it.id}">${it.text}</a></li>`).join('');
+		const nav = `${TOC_STYLE}<nav class="g26-toc" aria-label="Содержание"><p class="g26-toc__title">На этой странице</p><ol>${list}</ol></nav>`;
+		const firstH2 = main.indexOf('<h2');
+		if (firstH2 !== -1) {
+			main = main.slice(0, firstH2) + nav + main.slice(firstH2);
+			changed = true;
+		}
+	}
+
+	if (!changed) return false;
+	html = html.slice(0, m.index) + openTag + main + '</main>' + html.slice(m.index + m[0].length);
+	writeFileSync(file, html, 'utf8');
+	return true;
+}
+
+{
+	const files = htmlFiles(BUILD);
+	let n = 0;
+	for (const f of files) {
+		// build/index.html — единственная страница с csr=true (см. комментарий к шагу 4):
+		// только id, без вставки нового узла TOC.
+		const isHome = relative(BUILD, f) === 'index.html';
+		if (patchGeo2026(f, { allowToc: !isHome })) n++;
+	}
+	console.log(`postbuild: geo2026 — обработано ${files.length} файлов, изменено ${n}`);
 }
