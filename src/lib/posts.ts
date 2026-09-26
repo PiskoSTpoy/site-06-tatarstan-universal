@@ -366,6 +366,30 @@ export const posts: Post[] = [
 		tag: 'Газоопасные работы',
 	},
 	{
+		slug: 'rabota-krana-ohrannaya-zona-nefteprovoda',
+		href: '/blog/rabota-krana-ohrannaya-zona-nefteprovoda/',
+		title: 'Кран в охранной зоне нефтепровода: разрешение и сроки',
+		excerpt:
+			'25 м от оси магистрального нефтепровода: письменное разрешение по п. 4.4 и 5.1 Правил охраны 1992 года, вызов представителя за 5 суток, АО «Транснефть – Прикамье».',
+		tag: 'Охранные зоны',
+	},
+	{
+		slug: 'stoimost-krana-na-territorii-predpriyatiya',
+		href: '/blog/stoimost-krana-na-territorii-predpriyatiya/',
+		title: 'Цена крана на территории предприятия: что сверх смены',
+		excerpt:
+			'Смена, подача, искрогаситель, ППР и ожидание наряда-допуска: кто что оплачивает и что говорят ст. 781 и 782 ГК РФ о простое и отмене крана.',
+		tag: 'Стоимость',
+	},
+	{
+		slug: 'akt-dopusk-kran-deystvuyushchee-predpriyatie',
+		href: '/blog/akt-dopusk-kran-deystvuyushchee-predpriyatie/',
+		title: 'Акт-допуск для крана на действующем предприятии (№883н)',
+		excerpt:
+			'П. 17 Правил №883н: акт-допуск на участок, наряд-допуск на опасную работу и наряд по приказу №528 — три документа и кто их оформляет до выезда крана.',
+		tag: 'Акт-допуск',
+	},
+	{
 		slug: 'specrazreshenie-proezd-avtokrana',
 		href: '/blog/specrazreshenie-proezd-avtokrana/',
 		title: 'Спецразрешение на проезд автокрана в Татарстане — когда нужно и кто выдаёт',
