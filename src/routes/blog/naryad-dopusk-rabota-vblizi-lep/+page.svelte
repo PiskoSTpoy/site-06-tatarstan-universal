@@ -101,6 +101,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-06T10:20:55+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Работа у ЛЭП"

@@ -88,6 +88,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-16T10:26:20+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Водоохранная зона"

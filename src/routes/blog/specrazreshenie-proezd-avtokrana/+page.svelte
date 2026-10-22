@@ -113,6 +113,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-07T10:26:19+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Спецразрешение"

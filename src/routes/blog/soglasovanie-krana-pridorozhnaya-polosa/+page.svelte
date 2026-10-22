@@ -114,6 +114,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-17T10:27:50+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Полоса отвода дороги"

@@ -88,6 +88,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-20T10:25:19+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Работы на высоте"

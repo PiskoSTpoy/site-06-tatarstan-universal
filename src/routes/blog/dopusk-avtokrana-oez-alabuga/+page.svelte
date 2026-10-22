@@ -79,6 +79,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-09T10:28:58+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Допуск в ОЭЗ «Алабуга»"

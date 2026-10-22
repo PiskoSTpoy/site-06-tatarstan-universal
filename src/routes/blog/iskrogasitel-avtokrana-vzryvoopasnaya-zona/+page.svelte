@@ -106,6 +106,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-24T01:13:30+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Искрогаситель на автокран"

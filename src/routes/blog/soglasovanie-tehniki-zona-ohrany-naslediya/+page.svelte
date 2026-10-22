@@ -99,6 +99,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-11T10:24:37+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Зона охраны наследия"

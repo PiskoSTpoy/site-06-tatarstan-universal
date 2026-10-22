@@ -109,6 +109,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-24T12:17:31+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Аренда крана с экипажем или услуги"

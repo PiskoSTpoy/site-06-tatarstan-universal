@@ -83,6 +83,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-15T10:26:51+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Ордер на земляные работы"

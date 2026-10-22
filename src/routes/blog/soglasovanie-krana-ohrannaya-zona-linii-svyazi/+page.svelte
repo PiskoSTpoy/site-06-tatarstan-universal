@@ -89,6 +89,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-19T18:06:21+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Охранная зона линии связи"

@@ -90,6 +90,7 @@
 </svelte:head>
 
 <BlogArticleLayout
+	published="2026-09-08T10:21:00+03:00"
 	{title}
 	subtitle="Инженерная служба KRAN-RT · обновлено в 2026 году"
 	crumbLabel="Охранная зона газопровода"
